@@ -98,6 +98,27 @@
   .nav-links a:hover{ border-color:var(--tomato); color:var(--tomato); }
   @media (max-width:680px){ .nav-links{ display:none; } }
 
+  .lang-switch{
+    font-family:'Archivo', sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink);
+    background:var(--paper);
+    border:2px solid var(--ink);
+    padding:7px 26px 7px 12px;
+    border-radius:0;
+    cursor:pointer;
+    appearance:none;
+    -webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23121212' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 10px center;
+    transition:background .15s ease, color .15s ease;
+  }
+  .lang-switch:hover{ background-color:var(--paper-2); }
+
   /* ---------- HERO ---------- */
   .hero{ padding:72px 0 56px; overflow:hidden; }
   .hero-top{
@@ -361,11 +382,15 @@
       <div class="nav-word">DA&nbsp;MICHELE</div>
     </div>
     <ul class="nav-links">
-      <li><a href="#dough">The Dough</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#chef">Michele</a></li>
-      <li><a href="#visit">Visit</a></li>
+      <li><a href="#dough" data-i18n="nav_dough">The Dough</a></li>
+      <li><a href="#menu" data-i18n="nav_menu">Menu</a></li>
+      <li><a href="#chef" data-i18n="nav_chef">Michele</a></li>
+      <li><a href="#visit" data-i18n="nav_visit">Visit</a></li>
     </ul>
+    <select id="lang-switch" class="lang-switch" aria-label="Language / Sprache">
+      <option value="en">EN</option>
+      <option value="de">DE</option>
+    </select>
   </div>
 </nav>
 
@@ -373,7 +398,7 @@
   <div class="wrap">
     <div class="hero-top">
       <div>
-        <div class="mono-label">Neapolitan Pizza · Naturally Leavened · Zürich</div>
+        <div class="mono-label" data-i18n="hero_eyebrow">Neapolitan Pizza · Naturally Leavened · Zürich</div>
         <h1>Ristorante<br><em>da</em> Michele</h1>
       </div>
       <svg class="hero-seal seal" viewBox="0 0 120 120"><use href="#seal-mark"/></svg>
@@ -381,19 +406,19 @@
 
     <div class="hero-strip">
       <div>
-        <p>A wood-fired room built around one dough, fermented for 48 hours, and one fire kept at 485°C.</p>
+        <p data-i18n="hero_strip_desc">A wood-fired room built around one dough, fermented for 48 hours, and one fire kept at 485°C.</p>
       </div>
       <div>
         <div class="big">48h</div>
-        <p>fermentation, every ball</p>
+        <p data-i18n="hero_48h_label">fermentation, every ball</p>
       </div>
       <div>
         <div class="big">485°</div>
-        <p>oven floor, Celsius</p>
+        <p data-i18n="hero_485_label">oven floor, Celsius</p>
       </div>
       <div>
         <div class="big">1992</div>
-        <p>on Schweighofstrasse since</p>
+        <p data-i18n="hero_1992_label">on Schweighofstrasse since</p>
       </div>
     </div>
 
@@ -404,36 +429,36 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="mono-label">How the dough is built</div>
-        <h2>Five stages,<br>forty-eight hours</h2>
+        <div class="mono-label" data-i18n="dough_eyebrow">How the dough is built</div>
+        <h2 data-i18n="dough_h2" data-i18n-html>Five stages,<br>forty-eight hours</h2>
       </div>
       <div class="section-num">01 — 05</div>
     </div>
     <div class="stages">
       <div class="stage">
-        <div class="t">Hour 0</div>
-        <h3>Mix</h3>
-        <p>Tipo 1 flour, natural sourdough starter, Zürich tap water, sea salt. No commercial yeast, ever.</p>
+        <div class="t" data-i18n="stage1_t">Hour 0</div>
+        <h3 data-i18n="stage1_h3">Mix</h3>
+        <p data-i18n="stage1_p">Tipo 1 flour, natural sourdough starter, Zürich tap water, sea salt. No commercial yeast, ever.</p>
       </div>
       <div class="stage">
-        <div class="t">Hour 0–4</div>
-        <h3>Bulk ferment</h3>
-        <p>The dough rests as one mass at room temperature, building structure and early flavour.</p>
+        <div class="t" data-i18n="stage2_t">Hour 0–4</div>
+        <h3 data-i18n="stage2_h3">Bulk ferment</h3>
+        <p data-i18n="stage2_p">The dough rests as one mass at room temperature, building structure and early flavour.</p>
       </div>
       <div class="stage">
-        <div class="t">Hour 4–6</div>
-        <h3>Staglio</h3>
-        <p>Divided and hand-shaped into 260g panetti — one ball, one pizza, no scraps recombined.</p>
+        <div class="t" data-i18n="stage3_t">Hour 4–6</div>
+        <h3 data-i18n="stage3_h3">Staglio</h3>
+        <p data-i18n="stage3_p">Divided and hand-shaped into 260g panetti — one ball, one pizza, no scraps recombined.</p>
       </div>
       <div class="stage">
-        <div class="t">Hour 6–48</div>
-        <h3>Cold proof</h3>
-        <p>Slow fermentation under refrigeration develops the open, digestible crumb we serve.</p>
+        <div class="t" data-i18n="stage4_t">Hour 6–48</div>
+        <h3 data-i18n="stage4_h3">Cold proof</h3>
+        <p data-i18n="stage4_p">Slow fermentation under refrigeration develops the open, digestible crumb we serve.</p>
       </div>
       <div class="stage">
-        <div class="t">90 seconds</div>
-        <h3>Forno</h3>
-        <p>Fired on the oven floor at 485°C — leopard-spotted, soft at the centre, no reheats.</p>
+        <div class="t" data-i18n="stage5_t">90 seconds</div>
+        <h3 data-i18n="stage5_h3">Forno</h3>
+        <p data-i18n="stage5_p">Fired on the oven floor at 485°C — leopard-spotted, soft at the centre, no reheats.</p>
       </div>
     </div>
   </div>
@@ -443,40 +468,40 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="mono-label">La Carta</div>
-        <h2>Pizze &amp;<br>a few things beside</h2>
+        <div class="mono-label" data-i18n="menu_eyebrow">La Carta</div>
+        <h2 data-i18n="menu_h2" data-i18n-html>Pizze &amp;<br>a few things beside</h2>
       </div>
-      <div class="section-num">08 items</div>
+      <div class="section-num" data-i18n="menu_num">08 items</div>
     </div>
     <div class="menu-grid">
       <div>
         <div class="menu-item">
           <div>
             <div class="name">Margherita</div>
-            <div class="desc">San Marzano tomato, fior di latte, basil, olive oil.</div>
-            <span class="menu-tag">Classic</span>
+            <div class="desc" data-i18n="desc_margherita">San Marzano tomato, fior di latte, basil, olive oil.</div>
+            <span class="menu-tag" data-i18n="tag_classic">Classic</span>
           </div>
           <div class="price">CHF 22</div>
         </div>
         <div class="menu-item">
           <div>
             <div class="name">Marinara</div>
-            <div class="desc">San Marzano tomato, garlic, oregano, olive oil — no cheese.</div>
-            <span class="menu-tag">Vegan</span>
+            <div class="desc" data-i18n="desc_marinara">San Marzano tomato, garlic, oregano, olive oil — no cheese.</div>
+            <span class="menu-tag" data-i18n="tag_vegan">Vegan</span>
           </div>
           <div class="price">CHF 19</div>
         </div>
         <div class="menu-item">
           <div>
             <div class="name">Bufala e Basilico</div>
-            <div class="desc">Buffalo mozzarella DOP, San Marzano tomato, fresh basil.</div>
+            <div class="desc" data-i18n="desc_bufala">Buffalo mozzarella DOP, San Marzano tomato, fresh basil.</div>
           </div>
           <div class="price">CHF 26</div>
         </div>
         <div class="menu-item">
           <div>
             <div class="name">Diavola</div>
-            <div class="desc">Spicy Calabrian salami, fior di latte, tomato, chilli oil.</div>
+            <div class="desc" data-i18n="desc_diavola">Spicy Calabrian salami, fior di latte, tomato, chilli oil.</div>
           </div>
           <div class="price">CHF 25</div>
         </div>
@@ -485,30 +510,30 @@
         <div class="menu-item">
           <div>
             <div class="name">Bianca ai Funghi</div>
-            <div class="desc">No tomato — mushroom, fior di latte, thyme, pecorino.</div>
+            <div class="desc" data-i18n="desc_bianca">No tomato — mushroom, fior di latte, thyme, pecorino.</div>
           </div>
           <div class="price">CHF 25</div>
         </div>
         <div class="menu-item">
           <div>
             <div class="name">Nduja e Miele</div>
-            <div class="desc">Nduja, fior di latte, Ticino chestnut honey, chilli.</div>
+            <div class="desc" data-i18n="desc_nduja">Nduja, fior di latte, Ticino chestnut honey, chilli.</div>
           </div>
           <div class="price">CHF 27</div>
         </div>
         <div class="menu-item">
           <div>
             <div class="name">Burrata di Giornata</div>
-            <div class="desc">Fresh burrata, San Daniele prosciutto, rocket, grana.</div>
-            <span class="menu-tag">Antipasto</span>
+            <div class="desc" data-i18n="desc_burrata">Fresh burrata, San Daniele prosciutto, rocket, grana.</div>
+            <span class="menu-tag" data-i18n="tag_antipasto">Antipasto</span>
           </div>
           <div class="price">CHF 21</div>
         </div>
         <div class="menu-item">
           <div>
             <div class="name">Tiramisù della Casa</div>
-            <div class="desc">Made fresh each morning, espresso from Naples.</div>
-            <span class="menu-tag">Dolce</span>
+            <div class="desc" data-i18n="desc_tiramisu">Made fresh each morning, espresso from Naples.</div>
+            <span class="menu-tag" data-i18n="tag_dolce">Dolce</span>
           </div>
           <div class="price">CHF 12</div>
         </div>
@@ -523,10 +548,10 @@
       <svg class="seal" viewBox="0 0 120 120"><use href="#seal-mark"/></svg>
     </div>
     <div>
-      <div class="mono-label" style="color:var(--tomato)">Owner &amp; Head Chef</div>
+      <div class="mono-label" style="color:var(--tomato)" data-i18n="chef_eyebrow">Owner &amp; Head Chef</div>
       <h2>Michael<br>"Michele" Hersche</h2>
-      <p>Michael grew up in Zürich but learned to bake in Naples, where an apprenticeship under a third-generation pizzaiolo turned into an obsession with one question: what happens to flour and water if you simply give them enough time.</p>
-      <p>He brought that answer home. The nickname "Michele" stuck after his first summer working the ovens on the Amalfi coast, and it's the one that now hangs above the door on Schweighofstrasse. He still shapes the first dozen pizze of every service himself.</p>
+      <p data-i18n="chef_p1">Michael grew up in Zürich but learned to bake in Naples, where an apprenticeship under a third-generation pizzaiolo turned into an obsession with one question: what happens to flour and water if you simply give them enough time.</p>
+      <p data-i18n="chef_p2">He brought that answer home. The nickname "Michele" stuck after his first summer working the ovens on the Amalfi coast, and it's the one that now hangs above the door on Schweighofstrasse. He still shapes the first dozen pizze of every service himself.</p>
       <div class="chef-sign">— Michele</div>
     </div>
   </div>
@@ -537,28 +562,28 @@
     <div>
       <div class="section-head" style="margin-bottom:36px;">
         <div>
-          <div class="mono-label" style="color:var(--tomato)">Visit</div>
-          <h2>Find the table</h2>
+          <div class="mono-label" style="color:var(--tomato)" data-i18n="visit_eyebrow">Visit</div>
+          <h2 data-i18n="visit_h2">Find the table</h2>
         </div>
       </div>
 
       <div class="info-block">
-        <span class="mono-label">Address</span>
-        <div class="val">Schweighofstrasse 406<br>8055 Zürich, Switzerland</div>
+        <span class="mono-label" data-i18n="label_address">Address</span>
+        <div class="val" data-i18n="address_val" data-i18n-html>Schweighofstrasse 406<br>8055 Zürich, Switzerland</div>
       </div>
 
       <div class="info-block">
-        <span class="mono-label">Reservations</span>
+        <span class="mono-label" data-i18n="label_reservations">Reservations</span>
         <div class="val">+41 79 584 43 36</div>
       </div>
 
       <div class="info-block">
-        <span class="mono-label">Opening hours</span>
+        <span class="mono-label" data-i18n="label_hours">Opening hours</span>
         <div style="margin-top:6px;">
-          <div class="hours-row"><span>Tue – Fri</span><span>17:30 – 23:00</span></div>
-          <div class="hours-row"><span>Sat</span><span>12:00 – 23:00</span></div>
-          <div class="hours-row"><span>Sun</span><span>12:00 – 21:30</span></div>
-          <div class="hours-row closed"><span>Mon</span><span>Closed — dough is resting</span></div>
+          <div class="hours-row"><span data-i18n="hours_tuefri">Tue – Fri</span><span>17:30 – 23:00</span></div>
+          <div class="hours-row"><span data-i18n="hours_sat">Sat</span><span>12:00 – 23:00</span></div>
+          <div class="hours-row"><span data-i18n="hours_sun">Sun</span><span>12:00 – 21:30</span></div>
+          <div class="hours-row closed"><span data-i18n="hours_mon">Mon</span><span data-i18n="hours_closed_val">Closed — dough is resting</span></div>
         </div>
       </div>
     </div>
@@ -577,8 +602,8 @@
         </svg>
       </div>
       <div class="map-caption">
-        <div class="addr">Schweighofstrasse 406<br>8055 Zürich · Switzerland</div>
-        <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Schweighofstrasse+406+Zurich" target="_blank" rel="noopener">Open in Google Maps →</a>
+        <div class="addr" data-i18n="map_addr" data-i18n-html>Schweighofstrasse 406<br>8055 Zürich · Switzerland</div>
+        <a class="map-link" data-i18n="map_link" href="https://www.google.com/maps/search/?api=1&query=Schweighofstrasse+406+Zurich" target="_blank" rel="noopener">Open in Google Maps →</a>
       </div>
     </div>
   </div>
@@ -590,9 +615,139 @@
       <svg class="seal" viewBox="0 0 120 120"><use href="#seal-mark"/></svg>
       <div class="fmark">RISTORANTE DA MICHELE</div>
     </div>
-    <div class="fnote">Schweighofstrasse 406, 8055 Zürich · Tue–Sun</div>
+    <div class="fnote" data-i18n="footer_note">Schweighofstrasse 406, 8055 Zürich · Tue–Sun</div>
   </div>
 </footer>
+
+<script>
+  var translations = {
+    en: {
+      title: "Ristorante da Michele — Sourdough Neapolitan Pizza, Zürich",
+      nav_dough: "The Dough",
+      nav_menu: "Menu",
+      nav_chef: "Michele",
+      nav_visit: "Visit",
+      hero_eyebrow: "Neapolitan Pizza · Naturally Leavened · Zürich",
+      hero_strip_desc: "A wood-fired room built around one dough, fermented for 48 hours, and one fire kept at 485°C.",
+      hero_48h_label: "fermentation, every ball",
+      hero_485_label: "oven floor, Celsius",
+      hero_1992_label: "on Schweighofstrasse since",
+      dough_eyebrow: "How the dough is built",
+      dough_h2: "Five stages,<br>forty-eight hours",
+      stage1_t: "Hour 0", stage1_h3: "Mix",
+      stage1_p: "Tipo 1 flour, natural sourdough starter, Zürich tap water, sea salt. No commercial yeast, ever.",
+      stage2_t: "Hour 0–4", stage2_h3: "Bulk ferment",
+      stage2_p: "The dough rests as one mass at room temperature, building structure and early flavour.",
+      stage3_t: "Hour 4–6", stage3_h3: "Staglio",
+      stage3_p: "Divided and hand-shaped into 260g panetti — one ball, one pizza, no scraps recombined.",
+      stage4_t: "Hour 6–48", stage4_h3: "Cold proof",
+      stage4_p: "Slow fermentation under refrigeration develops the open, digestible crumb we serve.",
+      stage5_t: "90 seconds", stage5_h3: "Forno",
+      stage5_p: "Fired on the oven floor at 485°C — leopard-spotted, soft at the centre, no reheats.",
+      menu_eyebrow: "La Carta",
+      menu_h2: "Pizze &amp;<br>a few things beside",
+      menu_num: "08 items",
+      tag_classic: "Classic", tag_vegan: "Vegan", tag_antipasto: "Antipasto", tag_dolce: "Dolce",
+      desc_margherita: "San Marzano tomato, fior di latte, basil, olive oil.",
+      desc_marinara: "San Marzano tomato, garlic, oregano, olive oil — no cheese.",
+      desc_bufala: "Buffalo mozzarella DOP, San Marzano tomato, fresh basil.",
+      desc_diavola: "Spicy Calabrian salami, fior di latte, tomato, chilli oil.",
+      desc_bianca: "No tomato — mushroom, fior di latte, thyme, pecorino.",
+      desc_nduja: "Nduja, fior di latte, Ticino chestnut honey, chilli.",
+      desc_burrata: "Fresh burrata, San Daniele prosciutto, rocket, grana.",
+      desc_tiramisu: "Made fresh each morning, espresso from Naples.",
+      chef_eyebrow: "Owner &amp; Head Chef",
+      chef_p1: "Michael grew up in Zürich but learned to bake in Naples, where an apprenticeship under a third-generation pizzaiolo turned into an obsession with one question: what happens to flour and water if you simply give them enough time.",
+      chef_p2: "He brought that answer home. The nickname \"Michele\" stuck after his first summer working the ovens on the Amalfi coast, and it's the one that now hangs above the door on Schweighofstrasse. He still shapes the first dozen pizze of every service himself.",
+      visit_eyebrow: "Visit",
+      visit_h2: "Find the table",
+      label_address: "Address",
+      address_val: "Schweighofstrasse 406<br>8055 Zürich, Switzerland",
+      label_reservations: "Reservations",
+      label_hours: "Opening hours",
+      hours_tuefri: "Tue – Fri", hours_sat: "Sat", hours_sun: "Sun", hours_mon: "Mon",
+      hours_closed_val: "Closed — dough is resting",
+      map_addr: "Schweighofstrasse 406<br>8055 Zürich · Switzerland",
+      map_link: "Open in Google Maps →",
+      footer_note: "Schweighofstrasse 406, 8055 Zürich · Tue–Sun"
+    },
+    de: {
+      title: "Ristorante da Michele — Sauerteig-Pizza Napoletana, Zürich",
+      nav_dough: "Der Teig",
+      nav_menu: "Menü",
+      nav_chef: "Michele",
+      nav_visit: "Besuch",
+      hero_eyebrow: "Neapolitanische Pizza · Natürlich gesäuert · Zürich",
+      hero_strip_desc: "Ein holzbefeuerter Raum, gebaut um einen Teig, 48 Stunden fermentiert, und ein Feuer bei 485°C.",
+      hero_48h_label: "Fermentation, jeder Teigling",
+      hero_485_label: "Ofenboden, Celsius",
+      hero_1992_label: "an der Schweighofstrasse seit",
+      dough_eyebrow: "Wie der Teig entsteht",
+      dough_h2: "Fünf Stufen,<br>achtundvierzig Stunden",
+      stage1_t: "Stunde 0", stage1_h3: "Mischen",
+      stage1_p: "Tipo-1-Mehl, natürlicher Sauerteig, Zürcher Leitungswasser, Meersalz. Niemals Backhefe.",
+      stage2_t: "Stunde 0–4", stage2_h3: "Stockgare",
+      stage2_p: "Der Teig ruht als Ganzes bei Raumtemperatur und entwickelt Struktur und erste Aromen.",
+      stage3_t: "Stunde 4–6", stage3_h3: "Staglio",
+      stage3_p: "Geteilt und von Hand zu 260-g-Teiglingen geformt — ein Teigling, eine Pizza, keine Reste verarbeitet.",
+      stage4_t: "Stunde 6–48", stage4_h3: "Kalte Gare",
+      stage4_p: "Langsame Fermentation im Kühlschrank entwickelt die offene, bekömmliche Krume, die wir servieren.",
+      stage5_t: "90 Sekunden", stage5_h3: "Forno",
+      stage5_p: "Auf dem Ofenboden bei 485°C gebacken — leopardengefleckt, weich in der Mitte, nie aufgewärmt.",
+      menu_eyebrow: "La Carta",
+      menu_h2: "Pizze &amp;<br>ein paar weitere Dinge",
+      menu_num: "08 Gerichte",
+      tag_classic: "Klassiker", tag_vegan: "Vegan", tag_antipasto: "Antipasto", tag_dolce: "Dolce",
+      desc_margherita: "San-Marzano-Tomate, Fior di Latte, Basilikum, Olivenöl.",
+      desc_marinara: "San-Marzano-Tomate, Knoblauch, Oregano, Olivenöl — ohne Käse.",
+      desc_bufala: "Büffelmozzarella DOP, San-Marzano-Tomate, frischer Basilikum.",
+      desc_diavola: "Scharfe kalabrische Salami, Fior di Latte, Tomate, Chiliöl.",
+      desc_bianca: "Ohne Tomate — Pilze, Fior di Latte, Thymian, Pecorino.",
+      desc_nduja: "Nduja, Fior di Latte, Tessiner Kastanienhonig, Chili.",
+      desc_burrata: "Frische Burrata, San-Daniele-Schinken, Rucola, Grana.",
+      desc_tiramisu: "Jeden Morgen frisch zubereitet, Espresso aus Neapel.",
+      chef_eyebrow: "Inhaber &amp; Küchenchef",
+      chef_p1: "Michael ist in Zürich aufgewachsen, hat das Backen aber in Neapel gelernt, wo aus einer Lehre bei einem Pizzaiolo in dritter Generation eine Besessenheit für eine Frage wurde: Was passiert mit Mehl und Wasser, wenn man ihnen einfach genug Zeit gibt.",
+      chef_p2: "Diese Antwort brachte er mit nach Hause. Der Spitzname \"Michele\" blieb ihm nach seinem ersten Sommer an den Öfen der Amalfiküste — und genau der hängt heute über der Tür an der Schweighofstrasse. Die ersten Dutzend Pizze jedes Service formt er noch immer selbst.",
+      visit_eyebrow: "Besuch",
+      visit_h2: "Tisch finden",
+      label_address: "Adresse",
+      address_val: "Schweighofstrasse 406<br>8055 Zürich, Schweiz",
+      label_reservations: "Reservationen",
+      label_hours: "Öffnungszeiten",
+      hours_tuefri: "Di – Fr", hours_sat: "Sa", hours_sun: "So", hours_mon: "Mo",
+      hours_closed_val: "Geschlossen — Teig ruht",
+      map_addr: "Schweighofstrasse 406<br>8055 Zürich · Schweiz",
+      map_link: "In Google Maps öffnen →",
+      footer_note: "Schweighofstrasse 406, 8055 Zürich · Di–So"
+    }
+  };
+
+  function applyLang(lang){
+    if(!translations[lang]) lang = 'en';
+    var dict = translations[lang];
+    document.documentElement.lang = lang;
+    if(dict.title) document.title = dict.title;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(dict[key] === undefined) return;
+      if(el.hasAttribute('data-i18n-html')){ el.innerHTML = dict[key]; }
+      else { el.textContent = dict[key]; }
+    });
+    var switcher = document.getElementById('lang-switch');
+    if(switcher) switcher.value = lang;
+  }
+
+  function detectLang(){
+    var raw = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    return raw.indexOf('de') === 0 ? 'de' : 'en';
+  }
+
+  applyLang(detectLang());
+  document.getElementById('lang-switch').addEventListener('change', function(e){
+    applyLang(e.target.value);
+  });
+</script>
 
 </body>
 </html>
