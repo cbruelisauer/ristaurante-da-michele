@@ -163,21 +163,20 @@
     gap:24px;
   }
   .hero-top > .hero-heading{ min-width:0; flex:1 1 auto; }
-  .hero .mono-label{ color:var(--tomato); overflow-wrap:break-word; }
+  .hero .mono-label{ color:var(--tomato); }
   .hero-seal{ width:96px; height:96px; flex:0 0 auto; box-shadow:0 0 0 2px var(--paper); }
   @media (max-width:640px){ .hero-seal{ display:none; } }
 
   .hero h1{
     font-family:'Fraunces', serif;
     font-weight:900;
-    font-size:clamp(40px, 13vw, 158px);
+    font-size:clamp(24px, 11vw, 158px);
     line-height:0.9;
     letter-spacing:-0.015em;
     margin: 14px 0 0;
     text-transform:uppercase;
     color:var(--paper);
-    overflow-wrap:break-word;
-    hyphens:auto;
+    white-space:nowrap;
   }
   .hero h1 em{
     font-style:italic;
@@ -409,7 +408,7 @@
     <div class="hero-top">
       <div class="hero-heading">
         <div class="mono-label" data-i18n="hero_eyebrow">Neapolitan Pizza · Naturally Leavened · Zürich</div>
-        <h1>Ristorante<br><em>da</em> Michele</h1>
+        <h1 id="hero-title">Ristorante<br><em>da</em> Michele</h1>
       </div>
       <div class="hero-seal seal" role="img" aria-label="Ristorante da Michele logo"></div>
     </div>
@@ -706,6 +705,37 @@
   document.getElementById('lang-switch').addEventListener('change', function(e){
     applyLang(e.target.value);
   });
+
+  // ---- Hero title auto-fit: shrink the font so "Ristorante" / "da Michele"
+  // always fit on one line each, at any screen size, without ever breaking a word.
+  function fitHeroTitle(){
+    var h1 = document.getElementById('hero-title');
+    if(!h1) return;
+    var container = h1.parentElement;
+    var maxWidth = container.clientWidth;
+    if(!maxWidth) return;
+
+    h1.style.fontSize = ''; // reset to CSS base size to measure the natural width
+    var natural = h1.scrollWidth;
+    if(natural > maxWidth){
+      var base = parseFloat(getComputedStyle(h1).fontSize);
+      var target = Math.max(20, Math.floor(base * (maxWidth / natural) * 0.98));
+      h1.style.fontSize = target + 'px';
+    }
+  }
+
+  var fitTimer;
+  function scheduleFit(){
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(fitHeroTitle, 80);
+  }
+
+  fitHeroTitle();
+  window.addEventListener('resize', scheduleFit);
+  window.addEventListener('orientationchange', scheduleFit);
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(fitHeroTitle);
+  }
 </script>
 
 </body>
