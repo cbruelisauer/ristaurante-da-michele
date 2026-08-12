@@ -63,6 +63,7 @@
   }
 
   .wrap{ max-width:1160px; margin:0 auto; padding:0 32px; }
+  @media (max-width:480px){ .wrap{ padding:0 20px; } }
 
   /* ---------- LOGO SEAL ---------- */
   .seal{
@@ -161,19 +162,22 @@
     display:flex; justify-content:space-between; align-items:flex-start;
     gap:24px;
   }
-  .hero .mono-label{ color:var(--tomato); }
+  .hero-top > .hero-heading{ min-width:0; flex:1 1 auto; }
+  .hero .mono-label{ color:var(--tomato); overflow-wrap:break-word; }
   .hero-seal{ width:96px; height:96px; flex:0 0 auto; box-shadow:0 0 0 2px var(--paper); }
   @media (max-width:640px){ .hero-seal{ display:none; } }
 
   .hero h1{
     font-family:'Fraunces', serif;
     font-weight:900;
-    font-size:clamp(58px, 12vw, 158px);
-    line-height:0.86;
+    font-size:clamp(40px, 13vw, 158px);
+    line-height:0.9;
     letter-spacing:-0.015em;
     margin: 14px 0 0;
     text-transform:uppercase;
     color:var(--paper);
+    overflow-wrap:break-word;
+    hyphens:auto;
   }
   .hero h1 em{
     font-style:italic;
@@ -403,7 +407,7 @@
 <header class="hero">
   <div class="wrap">
     <div class="hero-top">
-      <div>
+      <div class="hero-heading">
         <div class="mono-label" data-i18n="hero_eyebrow">Neapolitan Pizza · Naturally Leavened · Zürich</div>
         <h1>Ristorante<br><em>da</em> Michele</h1>
       </div>
